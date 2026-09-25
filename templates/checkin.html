@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Asistencia</title>
+</head>
+<body>
+    <h2>Control de Asistencia - Escuela Sabática</h2>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul style="color: red;">
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    <form action="/checkin" method="POST">
+        <label for="attendee_id">Ingresa tu ID:</label><br>
+        <input type="text" id="attendee_id" name="attendee_id" placeholder="Ej. JUPE1995" required><br><br>
+        <button type="submit">Registrar Asistencia</button>
+    </form>
+</body>
+</html>
